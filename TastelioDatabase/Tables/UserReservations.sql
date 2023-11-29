@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[UserReservations]
+(
+	UserId UNIQUEIDENTIFIER FOREIGN KEY REFERENCES Users(Id) NOT NULL,
+	ReservationsId UNIQUEIDENTIFIER FOREIGN KEY REFERENCES Reservations(Id) NOT NULL,
+	PRIMARY KEY (UserId, ReservationsId)
+)
