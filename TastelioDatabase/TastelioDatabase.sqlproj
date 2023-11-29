@@ -60,5 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Users.sql" />
+    <Build Include="Tables\Roles.sql" />
+    <Build Include="Tables\UserRoles.sql" />
+    <Build Include="Tables\NewsletterSubsciptions.sql" />
   </ItemGroup>
 </Project>
