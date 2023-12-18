@@ -14,7 +14,24 @@ namespace DAL.Services.SqlService
 
 		public async Task<T?> GetSingle<T>(string sql, DynamicParameters? dynamicParameters = null)
 		{
-			return await dbConnection.QueryFirstAsync<T?>(sql, param: dynamicParameters, commandType: CommandType.Text);
+			return (await dbConnection.QueryAsync<T?>(sql, param: dynamicParameters, commandType: CommandType.Text)).FirstOrDefault();
+		}
+
+		// GetList
+
+		public async Task Execute(string sql, DynamicParameters? dynamicParameters = null)
+		{
+			await dbConnection.QueryAsync(sql, param: dynamicParameters, commandType: CommandType.StoredProcedure);
+		}
+
+		public async Task<List<T>?> Execute<T>(string sql, DynamicParameters? dynamicParameters = null)
+		{
+			return (await dbConnection.QueryAsync<T>(sql, param: dynamicParameters, commandType: CommandType.StoredProcedure)).ToList();
+		}
+
+		public async Task Delete(string sql, DynamicParameters? dynamicParameters = null)
+		{
+			await dbConnection.QueryAsync(sql, param: dynamicParameters, commandType: CommandType.Text);
 		}
 	}
 }
