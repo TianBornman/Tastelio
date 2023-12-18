@@ -33,5 +33,9 @@ namespace DAL.Services.SqlService
 		{
 			await dbConnection.QueryAsync(sql, param: dynamicParameters, commandType: CommandType.Text);
 		}
-	}
+        public async Task<List<T>?> GetList<T>(string sql, DynamicParameters? dynamicParameters = null)
+        {
+            return (await dbConnection.QueryAsync<T>(sql, param: dynamicParameters, commandType: CommandType.Text)).ToList();
+        }
+    }
 }
