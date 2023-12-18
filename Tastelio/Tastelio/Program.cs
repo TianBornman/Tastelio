@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using Tastelio.Client.Pages;
 using Tastelio.Components;
 using Tastelio.ViewModel.Home;
+using Tastelio.ViewModel.Login;
 
 namespace Tastelio
 {
@@ -22,6 +23,7 @@ namespace Tastelio
 			builder.Services.AddTransient<IDbConnection>((sp) => new SqlConnection(dbConnectionString));
 
 			builder.Services.AddScoped<IHomeViewModel, HomeViewModel>();
+			builder.Services.AddScoped<ILoginViewModel, LoginViewModel>();
 
 			builder.Services.AddSingleton<ISqlService, SqlService>();
 

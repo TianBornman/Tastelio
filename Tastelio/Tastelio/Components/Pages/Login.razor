@@ -1,0 +1,29 @@
+﻿@page "/login"
+@rendermode InteractiveServer
+@inject ILoginViewModel loginVm
+
+<h1>Login</h1>
+
+<EditForm Model="loginVm.LoginModel" OnValidSubmit="loginVm.Login">
+	<DataAnnotationsValidator />
+	<br />
+	<InputText @bind-Value="loginVm.LoginModel.Email" placeholder="Email"></InputText>
+	<ValidationMessage For="() => loginVm.LoginModel.Email" />
+	<br />
+	<InputText @bind-Value="loginVm.LoginModel.Password" placeholder="Password" type="password"></InputText>
+	<ValidationMessage For="() => loginVm.LoginModel.Password" />
+	<br />
+	<button type="submit">Login</button>
+</EditForm>
+
+@if (loginVm.Attempts > 0)
+{
+	@if (loginVm.LoggedIn)
+	{
+		<p style="color: green">Hi @loginVm?.User?.Firstname @loginVm?.User?.Lastname</p>
+	}
+	else
+	{
+		<p style="color: red">User doesn't exist or email and password doesn't match</p>
+	}
+}
