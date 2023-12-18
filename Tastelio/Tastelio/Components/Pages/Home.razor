@@ -1,6 +1,6 @@
 ﻿@page "/"
 @rendermode InteractiveServer
-@inject ISqlService database;
+@inject IHomeViewModel homeVm;
 
 <PageTitle>Home</PageTitle>
 
@@ -24,11 +24,6 @@ Welcome to your new app @user?.Firstname @user?.Lastname.
 
 	private async Task GetRecord()
 	{
-		string sql = "SELECT * FROM Users WHERE Firstname = @Search OR @Search IS NULL";
-
-		DynamicParameters dynamicParams = new();
-		dynamicParams.Add("@Search", search);
-
-		user = await database.GetSingle<User>(sql, dynamicParams);
+		user = await homeVm.GetRecord(search);
 	}
 }
