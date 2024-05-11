@@ -2,7 +2,7 @@
 	dotnet tool install --global dotnet-ef
 
 2. Create Migration
-	dotnet ef migrations add InitialCreate
+	dotnet ef migrations add InitialCreate --project Api
 
 3. Run Update
-	dotnet ef database update
+	dotnet ef database update --project Api

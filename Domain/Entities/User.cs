@@ -8,4 +8,7 @@ public class User : BaseEntity
 	public string LastName { get; set; } = null!;
 	public string Password { get; set; } = null!;
 	public Guid PasswordSalt { get; set; }
+
+	public List<Role>? Roles { get; set; }
+	public List<Reservation>? Reservations { get; set; }
 }
