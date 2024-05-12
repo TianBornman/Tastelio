@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tastelio", "Tastelio\Tastel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tastelio.Client", "Tastelio\Tastelio.Client\Tastelio.Client.csproj", "{E1EDEF57-1BF8-42E0-B918-36ABE4F8BC88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{9EC59B22-0922-4F37-952B-BBEF60A50045}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{9EC59B22-0922-4F37-952B-BBEF60A50045}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Persistance\Persistance.csproj", "{A53BB738-0794-418A-ABD2-C2F798F7F69D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistance", "Persistance\Persistance.csproj", "{A53BB738-0794-418A-ABD2-C2F798F7F69D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{515EEAAA-973D-45AE-8AA1-5025CF82F3A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{515EEAAA-973D-45AE-8AA1-5025CF82F3A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{284654E8-F6D0-44F2-9F97-06BD30E2D628}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{515EEAAA-973D-45AE-8AA1-5025CF82F3A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{515EEAAA-973D-45AE-8AA1-5025CF82F3A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{515EEAAA-973D-45AE-8AA1-5025CF82F3A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{284654E8-F6D0-44F2-9F97-06BD30E2D628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{284654E8-F6D0-44F2-9F97-06BD30E2D628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{284654E8-F6D0-44F2-9F97-06BD30E2D628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{284654E8-F6D0-44F2-9F97-06BD30E2D628}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
