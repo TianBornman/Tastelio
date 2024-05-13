@@ -1,29 +1,8 @@
 ﻿@page "/"
 @rendermode InteractiveServer
-@inject IHomeViewModel homeVm;
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app @user?.Firstname @user?.Lastname.
-
-<br />
-<input @bind-value="search" placeholder="Search"></input>
-<br />
-<button @onclick="GetRecord">Search</button>
-
-@code {
-	private User? user;
-	private string? search;
-
-	protected override async Task OnInitializedAsync()
-	{
-		await GetRecord();
-	}
-
-	private async Task GetRecord()
-	{
-		user = await homeVm.GetRecord(search);
-	}
-}
+Welcome to your new app.

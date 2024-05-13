@@ -19,7 +19,10 @@ public class MappingProfiles : Profile
 {
 	public MappingProfiles()
 	{
+		// User
 		CreateMap<CreateUserCommand, User>();
 		CreateMap<User, UserDto>();
+
+		// Reservation
 	}
 }

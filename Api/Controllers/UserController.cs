@@ -2,25 +2,24 @@ using Application.Handlers.User.Create;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers
+namespace Api.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class UserController : ControllerBase
 {
-	[ApiController]
-	[Route("[controller]")]
-	public class UserController : ControllerBase
+	private readonly ISender mediator;
+
+	public UserController(ISender mediator)
 	{
-		private readonly ISender mediator;
+		this.mediator = mediator;
+	}
 
-		public UserController(ISender mediator)
-		{
-			this.mediator = mediator;
-		}
+	[HttpPost("create")]
+	public async Task<IActionResult> Create([FromBody] CreateUserCommand command, CancellationToken cToken)
+	{
+		var result = await mediator.Send(command, cToken);
 
-		[HttpPost("create")]
-		public async Task<IActionResult> Create([FromBody] CreateUserCommand command, CancellationToken cToken)
-		{
-			var result = await mediator.Send(command, cToken);
-
-			return Ok(result);
-		}
+		return Ok(result);
 	}
 }
