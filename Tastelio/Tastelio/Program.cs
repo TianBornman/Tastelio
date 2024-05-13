@@ -1,9 +1,5 @@
-using DAL.Services.SqlService;
-using System.Data;
-using System.Data.SqlClient;
 using Tastelio.Client.Pages;
 using Tastelio.Components;
-using Tastelio.ViewModel.Home;
 
 namespace Tastelio
 {
@@ -17,13 +13,6 @@ namespace Tastelio
 			builder.Services.AddRazorComponents()
 				.AddInteractiveServerComponents()
 				.AddInteractiveWebAssemblyComponents();
-
-			string dbConnectionString = builder.Configuration.GetValue<string>("ConnectionStrings:TastelioDb") ?? string.Empty;
-			builder.Services.AddTransient<IDbConnection>((sp) => new SqlConnection(dbConnectionString));
-
-			builder.Services.AddScoped<IHomeViewModel, HomeViewModel>();
-
-			builder.Services.AddSingleton<ISqlService, SqlService>();
 
 			var app = builder.Build();
 

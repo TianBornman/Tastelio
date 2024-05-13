@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DAL\DAL.csproj" />
-    <ProjectReference Include="..\..\Models\Models.csproj" />
     <ProjectReference Include="..\Tastelio.Client\Tastelio.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
 </Project>
