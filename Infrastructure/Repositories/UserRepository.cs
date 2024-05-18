@@ -17,11 +17,13 @@ public class UserRepository : IUserRepository
     public async Task Add(User entity)
     {
         await dbContext.Users.AddAsync(entity);
-    }
+		await dbContext.SaveChangesAsync();
+	}
 
-    public void Delete(User entity)
+    public async Task Delete(User entity)
     {
         dbContext.Users.Remove(entity);
+        await dbContext.SaveChangesAsync();
     }
 
     public async Task<User?> Get(Guid id)
@@ -34,8 +36,9 @@ public class UserRepository : IUserRepository
         return await dbContext.Users.Where(user => ids.Contains(user.Id)).ToListAsync();
     }
 
-    public void Update(User entity)
+    public async Task Update(User entity)
     {
         dbContext.Update(entity);
-    }
+		await dbContext.SaveChangesAsync();
+	}
 }
