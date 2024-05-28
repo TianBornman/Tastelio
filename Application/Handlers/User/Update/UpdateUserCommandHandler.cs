@@ -28,6 +28,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UserD
         entity.LastName = request.LastName;
         entity.Password = request.Password;
         entity.PasswordSalt = request.PasswordSalt;
+        entity.ModifiedDate = DateTime.Now;
 
 	    await uow.UserRepository.Update(entity);
 

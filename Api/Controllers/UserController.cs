@@ -47,7 +47,7 @@ public class UserController : ControllerBase
 	[HttpDelete("delete/{id}")]
 	public async Task<IActionResult> Delete([FromRoute] Guid id, CancellationToken cToken)
 	{
-		var command = new DeleteUserCommand { Id= id };
+		var command = new DeleteUserCommand { Id = id };
 
 		await mediator.Send(command, cToken);
 
