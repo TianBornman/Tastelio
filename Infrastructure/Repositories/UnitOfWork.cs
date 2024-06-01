@@ -8,6 +8,7 @@ public class UnitOfWork : IUnitOfWork
     private readonly TastelioContext dbContext;
 
     public IUserRepository UserRepository => new UserRepository(dbContext);
+    public IReservationRepository ReservationRepository => new ReservationRepository(dbContext);
 
     public UnitOfWork(TastelioContext dbContext)
     {

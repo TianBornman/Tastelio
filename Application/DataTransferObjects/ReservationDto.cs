@@ -1,6 +1,6 @@
-﻿namespace Domain.Entities;
+﻿namespace Application.DataTransferObjects;
 
-public class Reservation : BaseEntity
+public class ReservationDto
 {
     public Guid Id { get; set; }
     public DateTime StartDate { get; set; }
@@ -9,6 +9,4 @@ public class Reservation : BaseEntity
     public string SpecialRequests { get; set; } = null!;
     public int? TableNumber { get; set; }
     public TimeSpan? Duration { get; set; }
-
-    public User CreatedBy { get; set; } = null!;
 }
