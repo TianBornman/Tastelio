@@ -41,5 +41,4 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
-/TastelioDatabase/TastelioDatabase.dbmdl
-/TastelioDatabase/TastelioDatabase.jfm
+/Api/Migrations/*
