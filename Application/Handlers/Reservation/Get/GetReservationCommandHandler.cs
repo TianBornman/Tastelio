@@ -1,33 +1,27 @@
 ﻿using Application.DataTransferObjects;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using Domain.Repositories;
+using MediatR;
 
-namespace Application.Handlers.Reservation.Get
+namespace Application.Handlers.Reservation.Get;
+
+public class GetReservationCommandHandler : IRequestHandler<GetReservationCommand, ReservationDto>
 {
-    public class GetReservationCommandHandler : IRequestHandler<GetReservationCommand, ReservationDto>
+    private readonly IUnitOfWork uow;
+    private readonly IMapper mapper;
+
+    public GetReservationCommandHandler(IUnitOfWork uow, IMapper mapper)
     {
-        private readonly IUnitOfWork uow;
-        private readonly IMapper mapper;
+        this.uow = uow;
+        this.mapper = mapper;
+    }
 
-        public GetReservationCommandHandler(IUnitOfWork uow, IMapper mapper)
-        {
-            this.uow = uow;
-            this.mapper = mapper;
-        }
+    public async Task<ReservationDto> Handle(GetReservationCommand request, CancellationToken cancellationToken)
+    {
+        var entity = await uow.ReservationRepository.Get(request.Id);
 
-        public async Task<ReservationDto> Handle(GetReservationCommand request, CancellationToken cancellationToken)
-        {
-            var entity = await uow.ReservationRepository.Get(request.Id);
+        var user = mapper.Map<ReservationDto>(entity);
 
-            var user = mapper.Map<ReservationDto>(entity);
-
-            return user;
-        }
+        return user;
     }
 }
