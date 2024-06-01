@@ -22,8 +22,6 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserD
 
         await uow.UserRepository.Add(entity);
 
-        await uow.SaveChanges();
-
 		var user = mapper.Map<UserDto>(entity);
 
 		return user;
